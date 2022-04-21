@@ -39,15 +39,19 @@ def main():
     # This gravity chain accumulates gravity.
     gravity = .00001
     kokomo = 0
+    keylargo = 5
     speed = 0
-
+    
     ching = .1 # PyGame doesn't use any specific variable for speed, 
     cheng = .2 # but this specifies horizontal and vertical movement.
     
     movingLeft = False  # These create more smooth movement. 
     movingRight = False # I should debounce the vertical as well... 
-    pygame.mixer.music.load("nokia.wav")
-    pygame.mixer.music.play(-1)
+    def peepthehorror():
+        pygame.mixer.music.load("nokia.wav")
+        pygame.mixer.music.play(-1)
+    
+    peepthehorror() # no chat im not gonna peep the horror. no chat im not gonna do it
     
     while running:
         # Keystrikes, those held down too, borrow from "keys."
@@ -72,6 +76,14 @@ def main():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     ypos += cheng
+                # muting the music doesn't actually peep the horror haha :(
+                # if event.key == pygame.K_m:
+                #   if keylargo > 0:
+                #       pygame.mixer.music.stop()
+                #       keylargo = 5 
+                #   if keylargo < 0:
+                #       peepthehorror()
+                #       keylargo = -5 
         pygame.display.update() # no fucking clue what this does tbh
         
         # The smoothing.
